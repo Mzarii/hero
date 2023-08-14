@@ -1,0 +1,49 @@
+<div class="container">
+  <h1 class="text-center mt-5 text-light">Hero App</h1>
+  <div class="row mt-5">
+    <div class="col-3">
+      <input
+        [(ngModel)]="hero.namee"
+        class="form-control m-1"
+        type="text"
+        placeholder="Name"
+      />
+    </div>
+    <div class="col-3">
+      <input
+        [(ngModel)]="hero.power"
+        class="form-control m-1"
+        type="number"
+        placeholder="power"
+      />
+    </div>
+    <div class="col-3">
+      <input
+        [(ngModel)]="hero.image"
+        class="form-control m-1"
+        type="text"
+        placeholder="photo url"
+      />
+    </div>
+    <div class="col-3">
+      <button (click)="ajout()" class="btn form-control m-1">ajouter</button>
+    </div>
+
+    <div class="row">
+      <div class="col-3 mt-5" *ngFor="let item of heros">
+        <div
+          [ngClass]="{
+            'card p-1': true,
+            top: item.power > 100,
+            moyen: item.power <= 100,
+            low: item.power < 50
+          }"
+        >
+          <img class="p-1" [src]="item.image" alt="" />
+          <p class="text-center">{{ item.power }}</p>
+          <p class="text-center">{{ item.namee }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
